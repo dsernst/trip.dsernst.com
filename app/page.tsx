@@ -110,8 +110,8 @@ export default function Home() {
               <div className="people-row">
                 <Person initial="A" name="Alex" color={avatar.sage} status="in" />
                 <Person initial="J" name="Jordan" color={avatar.amber} status="in" />
-                <Person initial="M" name="Morgan" color={avatar.terra} status="out" />
-                <Person initial="S" name="Sam" color={avatar.blue} status="in" />
+                <Person initial="M" name="Morgan" color={avatar.terra} status="in" />
+                <Person initial="S" name="Sam" color={avatar.blue} status="out" />
               </div>
             </div>
             <p className="opt-note">No explanation needed.</p>
