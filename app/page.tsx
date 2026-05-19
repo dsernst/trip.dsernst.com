@@ -105,8 +105,8 @@ export default function Home() {
           </div>
           <div className="opt-demo">
             <div className="trip-card">
-              <div className="trip-dest">Tbilisi, Georgia</div>
-              <div className="trip-date">Next trip · June 2025</div>
+              <div className="trip-dest">New Orleans, LA</div>
+              <div className="trip-date">Next trip · September {new Date().getFullYear()}</div>
               <div className="people-row">
                 <Person initial="A" name="Alex" color={avatar.sage} status="in" />
                 <Person initial="J" name="Jordan" color={avatar.amber} status="in" />
