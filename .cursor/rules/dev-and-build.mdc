@@ -1,0 +1,15 @@
+---
+description: Next.js dev server vs production build — do not break local dev
+alwaysApply: true
+---
+
+# Dev server and `npm run build`
+
+The user typically runs `npm run dev` in a separate terminal and keeps it running.
+
+**Never run `npm run build` to verify changes** while assisting on this repo unless the user explicitly asks for a production build. `next build` and `next dev` share `.next`; a build corrupts the running dev server (500 errors) and forces the user to restart manually.
+
+**Use instead:**
+- `npm test` — TypeScript (`tsc --noEmit && npm run lint`)
+
+Only run `npm run build` when the user requests it, or when dev is known to be stopped (e.g. pre-deploy check they asked for), or something you did especially needs to be tested for build errors that can't be caught by tsc or lint.
