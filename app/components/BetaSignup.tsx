@@ -106,13 +106,13 @@ export function BetaSignup() {
               <HoneypotInput />
               <input
                 type="text"
-                name="given-name"
-                id="beta-given-name"
+                name="name"
+                id="beta-name"
                 className="beta-input"
                 placeholder="Your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                autoComplete="given-name"
+                autoComplete="name"
                 autoFocus
                 required
               />
