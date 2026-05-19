@@ -19,7 +19,7 @@ export async function submitBetaSignup(
   const trimmedName = name.trim()
   if (!trimmedName) return { ok: false, error: 'Please enter your name.' }
 
-  const saved = await pushover('Random Trip beta signup', `${trimmedName}\n${phoneE164}`)
+  const saved = await pushover('trip.dsernst.com signup', `${trimmedName}\n${phoneE164}`)
   if (!saved) return { ok: false, error: 'Error saving' }
 
   return { ok: true }
