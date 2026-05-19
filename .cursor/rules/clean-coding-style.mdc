@@ -1,0 +1,68 @@
+---
+description: Concise code style preferences for this repo
+alwaysApply: true
+---
+
+# Coding Style Rules
+
+## General Principles
+
+- Prefer concise, readable code over verbose explanations
+- Eliminate unnecessary intermediate variables when the logic can be expressed inline
+- Use simple default values where appropriate (`||`, `??`) — not extra defensive branches (see no-unprompted-defensive-fallbacks)
+- Consolidate related logic into single expressions when it improves readability
+
+## JavaScript/TypeScript Patterns
+
+### Variable Elimination
+
+- Remove intermediate variables when the value is only used once
+- Prefer inline expressions over separate variable declarations
+
+### Conditional Logic Simplification
+
+- Prefer one-line `if` when the body is a single statement
+- Consolidate multi-line conditional logic into single expressions when possible
+- Use logical operators (`||`, `&&`, `??`) for simple fallbacks
+
+### Default Values
+
+- Prefer inline fallbacks over separate conditional blocks when the logic stays clear
+- Example: `(offset ?? 0)` instead of a multi-line undefined check
+
+### Mathematical Expressions
+
+- Use underscores in large numbers for readability (e.g. `60_000`)
+
+## Code Structure Preferences
+
+### Server actions & forms
+
+- Keep request parsing minimal
+- Handle optional fields with inline fallbacks when obvious
+- Read honeypot / form fields from `FormData` at submit time rather than lifting state unnecessarily
+
+### React Components
+
+- Eliminate duplicate state when one value or a single enum (`step`) can represent the flow
+- Use direct function calls in event handlers when the logic is simple
+- Prefer concise prop passing over intermediate variables
+
+## Readability Guidelines
+
+- When a single expression can replace multiple lines of conditional logic, prefer the single expression — unless it hurts clarity
+- Use descriptive variable names, but don't create variables just for the sake of naming
+- Balance conciseness with clarity - if an inline expression becomes too complex, break it out
+
+### Comments
+
+- Avoid comments that simply restate what each line of code does
+- Prefer comments that explain intent, trade-offs, constraints, or layout/section structure
+- Short JSX block comments that mark logical sections are fine in large components
+
+## Anti-Patterns to Avoid
+
+- Creating variables that are only used once
+- Multi-line conditional blocks that can be expressed as single expressions
+- Unnecessary intermediate steps in simple calculations
+- Splitting one conceptual state into multiple booleans when an enum is clearer
