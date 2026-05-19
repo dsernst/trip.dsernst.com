@@ -23,7 +23,7 @@ Phased plan for taking Random Trip from the current static explainer to a deploy
 
 - [x] Create a Next.js app in this repo.
 - [x] Port `random-trip.html` into the home route (`app/page.tsx` + `app/globals.css`), keeping look and copy as close as possible. Follow [`design/visual-design.md`](design/visual-design.md) and [`design/copy-principles.md`](design/copy-principles.md).
-- [ ] Deploy to Vercel; add custom domain `trip.dsernst.com`.
+- [x] Deploy to Vercel; add custom domain `trip.dsernst.com`.
 
 No auth, no database. Public marketing only.
 
