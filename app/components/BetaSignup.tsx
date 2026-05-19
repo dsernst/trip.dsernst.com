@@ -112,8 +112,8 @@ export function BetaSignup() {
             onChange={setPhone}
             autoComplete="tel"
           />
-          <button type="submit" className="beta-button" disabled={pending || !phone}>
-            {pending ? 'Checking…' : 'Continue'}
+          <button type="submit" className="beta-button" disabled={!phone}>
+            Continue
           </button>
           {error && <p className="beta-error">{error}</p>}
           <p className="beta-consent">By continuing, you agree we may text you about the beta.</p>
