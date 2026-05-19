@@ -486,6 +486,12 @@ body {
   margin-bottom: 28px;
 }
 
+.beta-phone {
+  font-size: 15px;
+  color: rgba(242,232,213,0.45);
+  margin: -16px 0 24px;
+}
+
 .beta-form {
   display: flex;
   flex-direction: column;
@@ -510,11 +516,6 @@ body {
 .beta-input:focus {
   border-color: var(--amber);
   background-color: rgba(255,255,255,0.1);
-}
-
-/* react-phone-number-input/input — same .beta-input class, no country flags */
-.beta-form .beta-input.PhoneInputInput {
-  display: block;
 }
 
 .beta-button {
