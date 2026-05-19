@@ -29,12 +29,10 @@ No auth, no database. Public marketing only.
 
 ### Phase 1 — Beta signup
 
-- Add a simple “Join the beta” block (email + optional name).
-- Server Action or route handler using one of:
-  - **A) Email to you** (e.g. Resend) — no “database product” to choose; you see every signup in your inbox.
-  - **B) Append to JSON** in Vercel Blob or KV — tiny persistence, still not Postgres.
-
-**Default recommendation:** **A (email)** for v0 — simplest solo workflow. Add Blob/KV later if you want an in-app list.
+- [x] “Join the beta” section before footer — phone first, then name (one field at a time).
+- [x] Server Action → Pushover notification (`PUSHOVER_APP_TOKEN`, `PUSHOVER_USER_KEY`).
+- [x] Honeypot (`components/HoneypotInput.tsx` + `lib/honeypot.ts`).
+- [ ] **DB milestone** — persist signups (phone E.164, name, `created_at`); same action writes DB + Pushover.
 
 ### Phase 2 — Your groups (v0, no real accounts)
 

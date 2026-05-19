@@ -1,3 +1,5 @@
+import { BetaSignup } from '@/app/components/BetaSignup'
+
 const avatar = {
   sage: '#8AAF8A',
   amber: '#D4821A',
@@ -72,8 +74,8 @@ export default function Home() {
             <div className="dist-card near">
               <div className="dist-card-title">Closer trips</div>
               <p>
-                Easier to coordinate, cheaper to get to. Great for a long weekend when schedules
-                are tight.
+                Easier to coordinate, cheaper to get to. Great for a long weekend when schedules are
+                tight.
               </p>
             </div>
             <div className="dist-card far">
@@ -157,11 +159,13 @@ export default function Home() {
           </div>
           <div className="reviews-callout">
             <strong>Reviews feed the next pick.</strong> &ldquo;Jordan wants somewhere slower&rdquo;
-            and &ldquo;the food in Valletta was a hit&rdquo; become quiet inputs — so each trip is
-            a little better calibrated than the last.
+            and &ldquo;the food in Valletta was a hit&rdquo; become quiet inputs — so each trip is a
+            little better calibrated than the last.
           </div>
         </div>
       </section>
+
+      <BetaSignup />
 
       <footer>
         <span className="wordmark">Random Trip.</span>

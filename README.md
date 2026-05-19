@@ -15,6 +15,8 @@ They provide context and capture the history of previous decisions to undo.
 
 ## Development
 
+Copy `.env.TEMPLATE` to `.env.local` and set keys.
+
 ```bash
 npm install
 npm run dev

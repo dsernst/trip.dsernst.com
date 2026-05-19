@@ -454,6 +454,124 @@ body {
 
 .reviews-callout strong { color: var(--ink); }
 
+/* ── BETA SIGNUP ── */
+.beta-section {
+  background-color: var(--forest);
+  padding: 100px 24px;
+}
+
+.beta-inner {
+  max-width: 420px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.beta-section .label { color: var(--sage); }
+
+.beta-title {
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+
+.beta-lead {
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(242,232,213,0.65);
+  margin-bottom: 28px;
+}
+
+.beta-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.beta-input {
+  width: 100%;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 16px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background-color: rgba(255,255,255,0.08);
+  color: var(--cream);
+  outline: none;
+}
+
+.beta-input::placeholder { color: rgba(242,232,213,0.35); }
+
+.beta-input:focus {
+  border-color: var(--amber);
+  background-color: rgba(255,255,255,0.1);
+}
+
+.beta-button {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 14px 24px;
+  border-radius: 100px;
+  border: none;
+  background-color: var(--amber);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.beta-button:hover:not(:disabled) { filter: brightness(1.05); }
+
+.beta-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.beta-consent {
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(242,232,213,0.35);
+  margin-top: 4px;
+}
+
+.beta-error {
+  font-size: 14px;
+  color: #e8a090;
+  margin: 0;
+}
+
+.beta-back {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 13px;
+  color: rgba(242,232,213,0.45);
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+  padding: 4px;
+}
+
+.beta-back:hover { color: rgba(242,232,213,0.7); }
+
+.beta-success {
+  font-family: var(--font-fraunces), serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--cream);
+  margin-top: 8px;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* ── FOOTER ── */
 footer {
   background-color: var(--forest);
