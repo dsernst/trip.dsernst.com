@@ -6,7 +6,7 @@ A trip coordination ritual for people who love each other but don't live near ea
 
 Random Trip removes the coordination overhead from group travel — no voting on destinations, no one person stuck planning, no awkward budget conversations. A destination gets picked based on where everyone is, what everyone can spend, and what the group has loved before. All anyone has to do is join.
 
-### Before making changes, see `/design` folder of markdown notes.
+### Before making changes, see `/design-docs` folder.
 
 They provide context and capture the history of previous decisions to undo.
 
