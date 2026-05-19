@@ -12,3 +12,4 @@ Promoted to top level.
 
 - [`visual-design.md`](visual-design.md) — Color palette, typography, layout, and aesthetic decisions
 - [`copy-principles.md`](copy-principles.md) — Voice, locked phrases, and rules for writing about Random Trip
+- [`alternate-taglines.md`](alternate-taglines.md) — OG/link-preview tagline ideas and discussion (not yet adopted)
