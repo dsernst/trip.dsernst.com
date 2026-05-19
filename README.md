@@ -29,8 +29,7 @@ npm run start   # serve production build locally
 
 ## Current state
 
-- **`app/page.tsx`** — Marketing landing (ported from `random-trip.html`)
-- **`random-trip.html`** — Original static reference (kept for diffing; not served in production)
+- **`app/page.tsx`** + **`app/globals.css`** — Marketing landing
 
 ## Stack
 
