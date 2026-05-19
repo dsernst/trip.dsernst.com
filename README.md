@@ -9,6 +9,9 @@ Random Trip removes the coordination overhead from group travel — no voting on
 ### Before making changes, see `/design` folder of markdown notes.
 They provide context, & capture the history of previous decisions to undo.
 
+- [`vision.md`](vision.md) — Product philosophy and audience
+- [`ROADMAP.md`](ROADMAP.md) — Phased MVP and deployment plan
+
 ## Current state
 
 - `random-trip.html` — Single-page explainer / marketing site
