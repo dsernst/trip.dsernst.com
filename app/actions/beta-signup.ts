@@ -1,19 +1,11 @@
 'use server'
 
+import { isValidPhoneNumber } from 'libphonenumber-js/min'
 import { formatApproxLocationForAdmin } from '../lib/approx-location'
 import { isHoneypotFilled } from '../lib/honeypot'
-import { normalizePhone } from '../lib/phone-normalize'
 import { pushover } from '../lib/pushover'
 
 export type BetaSignupResult = { ok: true } | { ok: false; error: string }
-
-export type ValidatePhoneResult = { ok: true; e164: string } | { ok: false; error: string }
-
-export async function validateBetaPhone(phone: string): Promise<ValidatePhoneResult> {
-  const phoneE164 = normalizePhone(phone)
-  if (!phoneE164) return { ok: false, error: 'Please enter a valid phone number.' }
-  return { ok: true, e164: phoneE164 }
-}
 
 export async function submitBetaSignup(
   phoneE164: string,
@@ -21,6 +13,8 @@ export async function submitBetaSignup(
   honeypot: string,
 ): Promise<BetaSignupResult> {
   if (isHoneypotFilled(honeypot)) return { ok: true }
+
+  if (!isValidPhoneNumber(phoneE164)) return { ok: false, error: 'Please enter a valid phone number.' }
 
   const trimmedName = name.trim()
   if (!trimmedName) return { ok: false, error: 'Please enter your name.' }

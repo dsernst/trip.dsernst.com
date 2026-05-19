@@ -1,13 +1,15 @@
 'use client'
 
 import { useState } from 'react'
-import { submitBetaSignup, validateBetaPhone } from '@/app/actions/beta-signup'
+import PhoneInput from 'react-phone-number-input/input'
+import { isValidPhoneNumber, type Value } from 'react-phone-number-input'
+import { submitBetaSignup } from '@/app/actions/beta-signup'
 import { HoneypotInput } from './HoneypotInput'
 import { HONEYPOT_FIELD_NAME } from '../lib/honeypot'
 
 export function BetaSignup() {
   const [step, setStep] = useState<'phone' | 'name' | 'done'>('phone')
-  const [phone, setPhone] = useState('')
+  const [phone, setPhone] = useState<Value>()
   const [phoneE164, setPhoneE164] = useState('')
   const [name, setName] = useState('')
   const [honeypot, setHoneypot] = useState('')
@@ -68,6 +70,7 @@ export function BetaSignup() {
               onClick={() => {
                 setStep('phone')
                 setPhoneE164('')
+                setPhone(undefined)
                 setError('')
               }}
             >
@@ -87,34 +90,29 @@ export function BetaSignup() {
         <p className="beta-lead">We&apos;ll text you when it&apos;s ready.</p>
         <form
           className="beta-form"
-          onSubmit={async (e) => {
+          onSubmit={(e) => {
             e.preventDefault()
             setError('')
             const fd = new FormData(e.currentTarget)
             setHoneypot(String(fd.get(HONEYPOT_FIELD_NAME) ?? ''))
-            setPending(true)
-            const result = await validateBetaPhone(phone)
-            setPending(false)
-            if (!result.ok) {
-              setError(result.error)
+            if (!phone || !isValidPhoneNumber(phone)) {
+              setError('Please enter a valid phone number.')
               return
             }
-            setPhoneE164(result.e164)
+            setPhoneE164(phone)
             setStep('name')
           }}
         >
           <HoneypotInput />
-          <input
-            type="tel"
-            name="phone"
+          <PhoneInput
+            defaultCountry="US"
             className="beta-input"
             placeholder="Phone number"
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={setPhone}
             autoComplete="tel"
-            required
           />
-          <button type="submit" className="beta-button" disabled={pending || !phone.trim()}>
+          <button type="submit" className="beta-button" disabled={pending || !phone}>
             {pending ? 'Checking…' : 'Continue'}
           </button>
           {error && <p className="beta-error">{error}</p>}
