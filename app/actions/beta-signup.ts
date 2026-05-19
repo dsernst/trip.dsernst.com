@@ -1,5 +1,6 @@
 'use server'
 
+import { formatApproxLocationForAdmin } from '../lib/approx-location'
 import { isHoneypotFilled } from '../lib/honeypot'
 import { normalizePhone } from '../lib/phone-normalize'
 import { pushover } from '../lib/pushover'
@@ -19,7 +20,15 @@ export async function submitBetaSignup(
   const trimmedName = name.trim()
   if (!trimmedName) return { ok: false, error: 'Please enter your name.' }
 
-  const saved = await pushover('trip.dsernst.com signup', `${trimmedName}\n${phoneE164}`)
+  const location = await formatApproxLocationForAdmin()
+
+  const saved = await pushover(
+    'trip.dsernst.com signup',
+    `${trimmedName}
+${phoneE164}
+
+${location}`,
+  )
   if (!saved) return { ok: false, error: 'Error saving' }
 
   return { ok: true }
