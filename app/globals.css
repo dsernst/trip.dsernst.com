@@ -1,3 +1,42 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-cream: #f2e8d5;
+  --color-ink: #1c1a14;
+  --color-forest: #2a4a35;
+  --color-amber: #d4821a;
+  --color-terra: #b85c38;
+  --color-sage: #8aaf8a;
+  --color-light-cream: #faf5ec;
+
+  --font-sans: var(--font-dm-sans), sans-serif;
+  --font-serif: var(--font-fraunces), serif;
+
+  --animate-fade-up: fade-up 0.6s ease both;
+  --animate-scroll-pulse: scroll-pulse 2s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scroll-pulse {
+    0%,
+    100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.9;
+    }
+  }
+}
+
 :root {
   --cream: #F2E8D5;
   --ink: #1C1A14;
@@ -15,115 +54,6 @@ body {
   color: var(--ink);
   font-family: var(--font-dm-sans), sans-serif;
   overflow-x: hidden;
-}
-
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  position: relative;
-  background-color: var(--forest);
-  overflow: hidden;
-  padding: 80px 24px 120px;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(212,130,26,0.18) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at 10% 80%, rgba(184,92,56,0.15) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-.hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(242,232,213,0.1) 1px, transparent 1px);
-  background-size: 28px 28px;
-  pointer-events: none;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  max-width: 820px;
-}
-
-.badge {
-  display: inline-block;
-  background-color: var(--amber);
-  color: var(--ink);
-  font-family: var(--font-dm-sans), sans-serif;
-  font-weight: 500;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  padding: 6px 16px;
-  border-radius: 100px;
-  margin-bottom: 32px;
-  animation: fadeUp 0.6s ease both;
-}
-
-.hero h1 {
-  font-family: var(--font-fraunces), serif;
-  font-size: clamp(76px, 15vw, 136px);
-  font-weight: 900;
-  line-height: 0.9;
-  color: var(--cream);
-  animation: fadeUp 0.6s 0.1s ease both;
-}
-
-.hero h1 em {
-  font-style: italic;
-  color: var(--amber);
-}
-
-.hero-sub {
-  margin-top: 32px;
-  font-size: 18px;
-  font-weight: 300;
-  color: rgba(242,232,213,0.72);
-  line-height: 1.72;
-  max-width: 540px;
-  margin-left: auto;
-  margin-right: auto;
-  animation: fadeUp 0.6s 0.2s ease both;
-}
-
-.hero-sub strong {
-  color: var(--cream);
-  font-weight: 500;
-}
-
-.scroll-hint {
-  position: absolute;
-  bottom: 36px;
-  left: 0;
-  right: 0;
-  width: fit-content;
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  color: rgba(242,232,213,0.35);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  animation: fadeUp 0.6s 0.5s ease both;
-}
-
-.scroll-hint::after {
-  content: '';
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, rgba(242,232,213,0.35), transparent);
-  animation: scrollPulse 2s ease-in-out infinite;
 }
 
 /* ── SHARED ── */
@@ -599,17 +529,6 @@ footer .wordmark {
 footer p {
   font-size: 14px;
   color: rgba(242,232,213,0.4);
-}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.4; }
-  50%       { opacity: 0.9; }
 }
 
 /* ── RESPONSIVE ── */

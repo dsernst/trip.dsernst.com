@@ -10,23 +10,31 @@ const avatar = {
 export default function Home() {
   return (
     <>
-      <section className="hero">
-        <div className="hero-inner">
-          <div className="badge">A trip ritual for people who matter</div>
-          <h1>
+      <section
+        className="relative grid min-h-screen place-items-center overflow-hidden bg-forest px-6 pt-20 pb-[120px] before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_60%_50%_at_80%_20%,rgba(212,130,26,0.18)_0%,transparent_60%),radial-gradient(ellipse_50%_60%_at_10%_80%,rgba(184,92,56,0.15)_0%,transparent_60%)] before:content-[''] after:pointer-events-none after:absolute after:inset-0 after:bg-[length:28px_28px] after:bg-[radial-gradient(circle,rgba(242,232,213,0.1)_1px,transparent_1px)] after:content-['']"
+      >
+        <div className="relative z-10 mx-auto max-w-[820px] text-center">
+          <div className="mb-8 inline-block rounded-full bg-amber px-4 py-1.5 font-sans text-[11px] font-medium tracking-[0.18em] text-ink uppercase animate-fade-up">
+            A trip ritual for people who matter
+          </div>
+          <h1 className="animate-fade-up font-serif text-[clamp(76px,15vw,136px)] leading-[0.9] font-black text-cream [animation-delay:0.1s]">
             Random
             <br />
-            <em>Trip.</em>
+            <em className="text-amber italic">Trip.</em>
           </h1>
-          <p className="hero-sub">
+          <p className="mx-auto mt-8 max-w-[540px] animate-fade-up text-lg leading-[1.72] font-light text-[rgba(242,232,213,0.72)] [animation-delay:0.2s]">
             For the people you keep meaning to see.
             <br />
             <br />
-            <strong>Random Trip handles the hard parts</strong> — where to go, what everyone can
-            afford, who can make it — so all you have to do is join.
+            <strong className="font-medium text-cream">
+              Random Trip handles the hard parts
+            </strong>{' '}
+            — where to go, what everyone can afford, who can make it — so all you have to do is join.
           </p>
         </div>
-        <div className="scroll-hint">how it works</div>
+        <div className="absolute right-0 bottom-9 left-0 mx-auto flex w-fit animate-fade-up flex-col items-center gap-2 text-[11px] tracking-[0.14em] text-[rgba(242,232,213,0.35)] uppercase [animation-delay:0.5s] after:h-10 after:w-px after:animate-scroll-pulse after:bg-linear-to-b after:from-[rgba(242,232,213,0.35)] after:to-transparent after:content-['']">
+          how it works
+        </div>
       </section>
 
       <section className="how-section">
