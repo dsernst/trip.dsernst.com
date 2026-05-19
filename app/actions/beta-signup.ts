@@ -14,20 +14,20 @@ export async function submitBetaSignup(
 ): Promise<BetaSignupResult> {
   if (isHoneypotFilled(honeypot)) return { ok: true }
 
-  if (!isValidPhoneNumber(phoneE164)) return { ok: false, error: 'Please enter a valid phone number.' }
+  if (!isValidPhoneNumber(phoneE164))
+    return { ok: false, error: 'Please enter a valid phone number.' }
 
   const trimmedName = name.trim()
   if (!trimmedName) return { ok: false, error: 'Please enter your name.' }
-
-  const location = await formatApproxLocationForAdmin()
 
   const saved = await pushover(
     'trip.dsernst.com signup',
     `${trimmedName}
 ${phoneE164}
 
-${location}`,
+${await formatApproxLocationForAdmin()}`,
   )
+
   if (!saved) return { ok: false, error: 'Error saving' }
 
   return { ok: true }

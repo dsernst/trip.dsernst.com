@@ -4,8 +4,8 @@ import { useState } from 'react'
 import PhoneInput from 'react-phone-number-input/input'
 import { isValidPhoneNumber, type Value } from 'react-phone-number-input'
 import { submitBetaSignup } from '@/app/actions/beta-signup'
+import { honeypotFromFormData } from '@/app/lib/honeypot'
 import { HoneypotInput } from './HoneypotInput'
-import { HONEYPOT_FIELD_NAME } from '../lib/honeypot'
 
 export function BetaSignup() {
   const [step, setStep] = useState<'phone' | 'name' | 'done'>('phone')
@@ -45,17 +45,23 @@ export function BetaSignup() {
           onSubmit={async (e) => {
             e.preventDefault()
             setError('')
+            // When submitting phone num...
             if (step === 'phone') {
               if (!phone || !isValidPhoneNumber(phone))
                 return setError('Please enter a valid phone number.')
 
               return setStep('name')
             }
-            const fd = new FormData(e.currentTarget)
-            const honeypot = String(fd.get(HONEYPOT_FIELD_NAME) ?? '')
+
+            // Or when submitting name...
+            if (!phone) return setStep('phone')
+
             setPending(true)
-            const result = await submitBetaSignup(phone ?? '', name, honeypot)
-            setPending(false)
+            const result = await submitBetaSignup(
+              phone,
+              name,
+              honeypotFromFormData(new FormData(e.currentTarget)),
+            ).finally(() => setPending(false))
             if (!result.ok) return setError(result.error)
 
             setStep('done')
