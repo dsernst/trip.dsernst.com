@@ -10,9 +10,7 @@ import { HONEYPOT_FIELD_NAME } from '../lib/honeypot'
 export function BetaSignup() {
   const [step, setStep] = useState<'phone' | 'name' | 'done'>('phone')
   const [phone, setPhone] = useState<Value>()
-  const [phoneE164, setPhoneE164] = useState('')
   const [name, setName] = useState('')
-  const [honeypot, setHoneypot] = useState('')
   const [error, setError] = useState('')
   const [pending, setPending] = useState(false)
 
@@ -27,96 +25,91 @@ export function BetaSignup() {
     )
   }
 
-  if (step === 'name') {
-    return (
-      <section className="beta-section">
-        <div className="beta-inner">
-          <span className="label">The beta</span>
-          <h2 className="beta-title">Almost there.</h2>
-          <p className="beta-lead">What should we call you?</p>
-          <form
-            className="beta-form"
-            onSubmit={async (e) => {
-              e.preventDefault()
-              setError('')
-              setPending(true)
-              const result = await submitBetaSignup(phoneE164, name, honeypot)
-              setPending(false)
-              if (!result.ok) {
-                setError(result.error)
-                return
-              }
-              setStep('done')
-            }}
-          >
-            <input
-              type="text"
-              name="name"
-              className="beta-input"
-              placeholder="Your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              autoComplete="name"
-              autoFocus
-              required
-            />
-            <button type="submit" className="beta-button" disabled={pending || !name.trim()}>
-              {pending ? 'Saving…' : 'Join the beta'}
-            </button>
-            {error && <p className="beta-error">{error}</p>}
-            <button
-              type="button"
-              className="beta-back"
-              onClick={() => {
-                setStep('phone')
-                setPhoneE164('')
-                setPhone(undefined)
-                setError('')
-              }}
-            >
-              ← Change phone number
-            </button>
-          </form>
-        </div>
-      </section>
-    )
-  }
-
   return (
     <section className="beta-section">
       <div className="beta-inner">
         <span className="label">The beta</span>
-        <h2 className="beta-title">Join the beta.</h2>
-        <p className="beta-lead">We&apos;ll text you when it&apos;s ready.</p>
+        {step === 'phone' ? (
+          <>
+            <h2 className="beta-title">Join the beta.</h2>
+            <p className="beta-lead">We&apos;ll text you when it&apos;s ready.</p>
+          </>
+        ) : (
+          <>
+            <h2 className="beta-title">Almost there.</h2>
+            <p className="beta-lead">What should we call you?</p>
+          </>
+        )}
         <form
           className="beta-form"
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault()
             setError('')
-            const fd = new FormData(e.currentTarget)
-            setHoneypot(String(fd.get(HONEYPOT_FIELD_NAME) ?? ''))
-            if (!phone || !isValidPhoneNumber(phone)) {
-              setError('Please enter a valid phone number.')
-              return
+            if (step === 'phone') {
+              if (!phone || !isValidPhoneNumber(phone))
+                return setError('Please enter a valid phone number.')
+
+              return setStep('name')
             }
-            setPhoneE164(phone)
-            setStep('name')
+            const fd = new FormData(e.currentTarget)
+            const honeypot = String(fd.get(HONEYPOT_FIELD_NAME) ?? '')
+            setPending(true)
+            const result = await submitBetaSignup(phone ?? '', name, honeypot)
+            setPending(false)
+            if (!result.ok) return setError(result.error)
+
+            setStep('done')
           }}
         >
           <HoneypotInput />
-          <PhoneInput
-            defaultCountry="US"
-            className="beta-input"
-            placeholder="Phone number"
-            value={phone}
-            onChange={setPhone}
-            autoComplete="tel"
-          />
-          <button type="submit" className="beta-button" disabled={!phone}>
-            Continue
-          </button>
-          {error && <p className="beta-error">{error}</p>}
-          <p className="beta-consent">By continuing, you agree we may text you about the beta.</p>
+          {step === 'phone' ? (
+            <>
+              <PhoneInput
+                defaultCountry="US"
+                className="beta-input"
+                placeholder="Phone number"
+                value={phone}
+                onChange={setPhone}
+                autoComplete="tel"
+              />
+              <button type="submit" className="beta-button" disabled={!phone}>
+                Continue
+              </button>
+              {error && <p className="beta-error">{error}</p>}
+              <p className="beta-consent">
+                By continuing, you agree we may text you about the beta.
+              </p>
+            </>
+          ) : (
+            <>
+              <input
+                type="text"
+                name="name"
+                className="beta-input"
+                placeholder="Your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                autoComplete="name"
+                autoFocus
+                required
+              />
+              <button type="submit" className="beta-button" disabled={pending || !name.trim()}>
+                {pending ? 'Saving…' : 'Join the beta'}
+              </button>
+              {error && <p className="beta-error">{error}</p>}
+              <button
+                type="button"
+                className="beta-back"
+                onClick={() => {
+                  setStep('phone')
+                  setPhone(undefined)
+                  setError('')
+                }}
+              >
+                ← Change phone number
+              </button>
+            </>
+          )}
         </form>
       </div>
     </section>
