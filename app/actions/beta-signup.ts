@@ -7,15 +7,20 @@ import { pushover } from '../lib/pushover'
 
 export type BetaSignupResult = { ok: true } | { ok: false; error: string }
 
+export type ValidatePhoneResult = { ok: true; e164: string } | { ok: false; error: string }
+
+export async function validateBetaPhone(phone: string): Promise<ValidatePhoneResult> {
+  const phoneE164 = normalizePhone(phone)
+  if (!phoneE164) return { ok: false, error: 'Please enter a valid phone number.' }
+  return { ok: true, e164: phoneE164 }
+}
+
 export async function submitBetaSignup(
-  phone: string,
+  phoneE164: string,
   name: string,
   honeypot: string,
 ): Promise<BetaSignupResult> {
   if (isHoneypotFilled(honeypot)) return { ok: true }
-
-  const phoneE164 = normalizePhone(phone)
-  if (!phoneE164) return { ok: false, error: 'Please enter a valid phone number.' }
 
   const trimmedName = name.trim()
   if (!trimmedName) return { ok: false, error: 'Please enter your name.' }
