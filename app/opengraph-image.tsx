@@ -86,23 +86,6 @@ export default async function Image() {
       >
         <div
           style={{
-            backgroundColor: amber,
-            color: '#1C1A14',
-            fontFamily: 'DM Sans',
-            fontSize: 22,
-            fontWeight: 500,
-            letterSpacing: '0.18em',
-            textTransform: 'uppercase',
-            padding: '10px 28px',
-            borderRadius: 100,
-            marginBottom: 48,
-          }}
-        >
-          A trip ritual for people who matter
-        </div>
-
-        <div
-          style={{
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'baseline',
@@ -136,7 +119,7 @@ export default async function Image() {
         <p
           style={{
             fontFamily: 'DM Sans',
-            fontSize: 36,
+            fontSize: 40,
             fontWeight: 500,
             color: 'rgba(242,232,213,0.78)',
             marginTop: 40,

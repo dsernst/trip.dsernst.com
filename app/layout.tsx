@@ -18,6 +18,9 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: 'Random Trip',
   description: 'For the people you keep meaning to see.',
+  openGraph: {
+    description: 'A trip ritual for people who matter.',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
