@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "tsc --noEmit && npm run lint"
+    "test": "tsc --noEmit && npm run lint",
+    "playwright:install": "PLAYWRIGHT_BROWSERS_PATH=.playwright-browsers playwright install chromium",
+    "test:visual": "PLAYWRIGHT_BROWSERS_PATH=.playwright-browsers playwright test",
+    "test:visual:update": "PLAYWRIGHT_BROWSERS_PATH=.playwright-browsers playwright test --update-snapshots"
   },
   "dependencies": {
     "libphonenumber-js": "^1.13.1",
@@ -17,6 +20,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.60.0",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
