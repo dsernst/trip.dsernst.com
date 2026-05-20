@@ -26,7 +26,7 @@ test.describe('landing page sections', () => {
 test.describe('beta signup', () => {
   test('6-beta-phone', async ({ page }) => {
     await prepareVisualPage(page)
-    const section = page.locator('section.beta-section')
+    const section = page.locator('[data-section="beta"]')
     await section.scrollIntoViewIfNeeded()
     await expect(section).toHaveScreenshot('6-beta-phone.png')
   })
@@ -37,7 +37,7 @@ test.describe('beta signup', () => {
     await tel.click()
     await tel.pressSequentially('2025551234', { delay: 30 })
     await expect(page.locator('#beta-name')).toBeVisible()
-    const section = page.locator('section.beta-section')
+    const section = page.locator('[data-section="beta"]')
     await section.scrollIntoViewIfNeeded()
     await expect(section).toHaveScreenshot('7-beta-name.png')
   })
@@ -45,7 +45,7 @@ test.describe('beta signup', () => {
 
 test('8-footer', async ({ page }) => {
   await prepareVisualPage(page)
-  const section = page.locator('footer')
+  const section = page.locator('[data-section="footer"]')
   await section.scrollIntoViewIfNeeded()
   await expect(section).toHaveScreenshot('8-footer.png')
 })

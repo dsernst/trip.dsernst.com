@@ -203,9 +203,13 @@ export default function Home() {
 
       <BetaSignup />
 
-      <footer>
-        <span className="wordmark">Random Trip.</span>
-        <p>For the people you keep meaning to see.</p>
+      <footer data-section="footer" className="bg-forest px-6 py-14 text-center">
+        <span className="mb-2.5 block font-serif text-[28px] leading-[normal] font-black italic text-cream">
+          Random Trip.
+        </span>
+        <p className="text-[14px] leading-[normal] text-[rgba(242,232,213,0.4)]">
+          For the people you keep meaning to see.
+        </p>
       </footer>
     </>
   )

@@ -9,7 +9,7 @@ export function HoneypotInput() {
       tabIndex={-1}
       autoComplete="off"
       aria-hidden="true"
-      className="honeypot"
+      className="pointer-events-none absolute left-[-9999px] h-px w-px opacity-0"
     />
   )
 }
