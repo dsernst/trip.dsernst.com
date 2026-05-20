@@ -8,9 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "test": "tsc --noEmit && npm run lint",
-    "playwright:install": "PLAYWRIGHT_BROWSERS_PATH=.playwright-browsers playwright install chromium",
-    "test:visual": "PLAYWRIGHT_BROWSERS_PATH=.playwright-browsers playwright test",
-    "test:visual:update": "PLAYWRIGHT_BROWSERS_PATH=.playwright-browsers playwright test --update-snapshots"
+    "playwright:install": "PLAYWRIGHT_BROWSERS_PATH=e2e/cache/.playwright-browsers playwright install chromium",
+    "test:visual": "PLAYWRIGHT_BROWSERS_PATH=e2e/cache/.playwright-browsers playwright test --config e2e/playwright.config.ts",
+    "test:visual:update": "PLAYWRIGHT_BROWSERS_PATH=e2e/cache/.playwright-browsers playwright test --config e2e/playwright.config.ts --update-snapshots"
   },
   "dependencies": {
     "libphonenumber-js": "^1.13.1",
