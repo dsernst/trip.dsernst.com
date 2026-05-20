@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <section
         data-section="hero"
-        className="relative grid min-h-screen place-items-center overflow-hidden bg-forest px-6 pt-20 pb-[120px] before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_60%_50%_at_80%_20%,rgba(212,130,26,0.18)_0%,transparent_60%),radial-gradient(ellipse_50%_60%_at_10%_80%,rgba(184,92,56,0.15)_0%,transparent_60%)] before:content-[''] after:pointer-events-none after:absolute after:inset-0 after:bg-[length:28px_28px] after:bg-[radial-gradient(circle,rgba(242,232,213,0.1)_1px,transparent_1px)] after:content-['']"
+        className="relative grid min-h-screen place-items-center overflow-hidden bg-forest px-6 pt-20 pb-[120px] before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_60%_50%_at_80%_20%,rgba(212,130,26,0.18)_0%,transparent_60%),radial-gradient(ellipse_50%_60%_at_10%_80%,rgba(184,92,56,0.15)_0%,transparent_60%)] before:content-[''] after:pointer-events-none after:absolute after:inset-0 after:bg-size-[28px_28px] after:bg-[radial-gradient(circle,rgba(242,232,213,0.1)_1px,transparent_1px)] after:content-['']"
       >
         <div className="relative z-10 max-w-[820px] text-center">
           <div className="mb-8 inline-block rounded-full bg-amber px-4 py-[6px] font-sans text-[11px]/[14px] font-medium tracking-[0.18em] text-ink uppercase animate-fade-up">
@@ -27,10 +27,8 @@ export default function Home() {
             For the people you keep meaning to see.
             <br />
             <br />
-            <strong className="font-medium text-cream">
-              Random Trip handles the hard parts
-            </strong>{' '}
-            — where to go, what everyone can afford, who can make it — so all you have to do is join.
+            <strong className="font-medium text-cream">Random Trip handles the hard parts</strong> —
+            where to go, what everyone can afford, who can make it — so all you have to do is join.
           </p>
         </div>
         <div className="absolute inset-x-0 bottom-9 z-10 flex animate-fade-up flex-col items-center gap-2 text-[11px] tracking-[0.14em] text-[rgba(242,232,213,0.35)] uppercase [animation-delay:0.5s] after:h-10 after:w-px after:animate-scroll-pulse after:bg-linear-to-b after:from-[rgba(242,232,213,0.35)] after:to-transparent after:content-['']">
@@ -38,11 +36,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="how-section">
-        <div className="section-inner">
-          <span className="label">The ritual</span>
-          <h2 className="section-title">Simple by design.</h2>
-          <div className="steps">
+      <section data-section="how" className="bg-light-cream px-6 py-[100px]">
+        <div className="mx-auto max-w-[860px]">
+          <span className="mb-3.5 block text-[11px]/[14px] font-medium tracking-[0.18em] text-amber uppercase">
+            The ritual
+          </span>
+          <h2 className="mb-14 font-serif text-[clamp(34px,5.5vw,54px)] leading-[1.1] font-bold text-ink">
+            Simple by design.
+          </h2>
+          <div className="grid">
             <Step
               num="01"
               title="Invite your people"
@@ -186,11 +188,15 @@ export default function Home() {
 
 function Step({ num, title, body }: { num: string; title: string; body: string }) {
   return (
-    <div className="step">
-      <div className="step-num">{num}</div>
-      <div className="step-content">
-        <h3>{title}</h3>
-        <p>{body}</p>
+    <div className="grid grid-cols-[72px_1fr] gap-7 border-t border-[rgba(28,26,20,0.1)] py-9 last:border-b max-[660px]:grid-cols-[48px_1fr] max-[660px]:gap-4">
+      <div className="pt-1 font-serif text-[48px] leading-none font-black text-[rgba(28,26,20,0.1)] select-none max-[660px]:text-4xl">
+        {num}
+      </div>
+      <div>
+        <h3 className="mt-1.5 mb-2 font-serif text-[22px] leading-[normal] font-bold text-ink">
+          {title}
+        </h3>
+        <p className="max-w-[500px] text-base leading-[1.72] text-[rgba(28,26,20,0.6)]">{body}</p>
       </div>
     </div>
   )

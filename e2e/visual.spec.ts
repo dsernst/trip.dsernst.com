@@ -4,7 +4,7 @@ import { prepareVisualPage } from './visual-helpers'
 /** Page order — ids become snapshot filenames (e.g. `1-hero`). */
 const sections: { id: string; selector: string; mask?: string }[] = [
   { id: '1-hero', selector: '[data-section="hero"]' },
-  { id: '2-how', selector: 'section.how-section' },
+  { id: '2-how', selector: '[data-section="how"]' },
   { id: '3-budget', selector: 'section.budget-section' },
   { id: '4-opt', selector: 'section.opt-section', mask: '.trip-date' },
   { id: '5-reviews', selector: 'section.reviews-section' },
