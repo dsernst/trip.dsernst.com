@@ -16,6 +16,7 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://trip.dsernst.com'),
   title: 'Random Trip',
   description: 'For the people you keep meaning to see.',
   openGraph: {
