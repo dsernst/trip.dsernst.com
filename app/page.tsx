@@ -69,29 +69,43 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="budget-section">
-        <div className="budget-inner">
+      <section data-section="budget" className="bg-forest px-6 py-[100px]">
+        <div className="mx-auto grid max-w-[860px] grid-cols-2 items-start gap-20 max-[660px]:grid-cols-1 max-[660px]:gap-10">
           <div>
-            <span className="label">Budget &amp; location</span>
-            <h2 className="budget-title">Built around real life.</h2>
-            <p className="budget-body">
-              Everyone sets <strong>their own spending limit</strong> — no awkward conversations, no
-              one dragged somewhere they can&apos;t afford. Everyone shares{' '}
-              <strong>roughly where they are</strong>, so the destination actually makes sense for
-              the group.
+            <span className="mb-3.5 block text-[11px]/[14px] font-medium tracking-[0.18em] text-sage uppercase">
+              Budget &amp; location
+            </span>
+            <h2 className="mb-5 font-serif text-[clamp(28px,4vw,44px)] leading-[1.1] font-bold text-cream">
+              Built around real life.
+            </h2>
+            <p className="text-base leading-[1.75] text-[rgba(242,232,213,0.58)]">
+              Everyone sets{' '}
+              <strong className="font-medium text-[rgba(242,232,213,0.9)]">
+                their own spending limit
+              </strong>{' '}
+              — no awkward conversations, no one dragged somewhere they can&apos;t afford.
+              Everyone shares{' '}
+              <strong className="font-medium text-[rgba(242,232,213,0.9)]">
+                roughly where they are
+              </strong>
+              , so the destination actually makes sense for the group.
             </p>
           </div>
-          <div className="distance-cards">
-            <div className="dist-card near">
-              <div className="dist-card-title">Closer trips</div>
-              <p>
+          <div className="flex flex-col gap-3">
+            <div className="rounded-[14px] border border-[rgba(255,255,255,0.1)] bg-[rgba(138,175,138,0.12)] px-6 py-[22px]">
+              <div className="mb-1.5 font-serif text-[18px] leading-[normal] font-bold text-sage">
+                Closer trips
+              </div>
+              <p className="text-sm leading-[1.62] text-[rgba(242,232,213,0.5)]">
                 Easier to coordinate, cheaper to get to. Great for a long weekend when schedules are
                 tight.
               </p>
             </div>
-            <div className="dist-card far">
-              <div className="dist-card-title">Farther trips</div>
-              <p>
+            <div className="rounded-[14px] border border-[rgba(255,255,255,0.1)] bg-[rgba(212,130,26,0.12)] px-6 py-[22px]">
+              <div className="mb-1.5 font-serif text-[18px] leading-[normal] font-bold text-amber">
+                Farther trips
+              </div>
+              <p className="text-sm leading-[1.62] text-[rgba(242,232,213,0.5)]">
                 More travel time, more cost — and more of an adventure. Both have a place in the
                 rotation.
               </p>

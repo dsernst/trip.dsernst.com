@@ -5,7 +5,7 @@ import { prepareVisualPage } from './visual-helpers'
 const sections: { id: string; selector: string; mask?: string }[] = [
   { id: '1-hero', selector: '[data-section="hero"]' },
   { id: '2-how', selector: '[data-section="how"]' },
-  { id: '3-budget', selector: 'section.budget-section' },
+  { id: '3-budget', selector: '[data-section="budget"]' },
   { id: '4-opt', selector: 'section.opt-section', mask: '.trip-date' },
   { id: '5-reviews', selector: 'section.reviews-section' },
 ]

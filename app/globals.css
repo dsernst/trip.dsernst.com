@@ -73,84 +73,6 @@ body {
   display: block;
 }
 
-/* ── BUDGET & LOCATION ── */
-.budget-section {
-  background-color: var(--forest);
-  padding: 100px 24px;
-}
-
-.budget-inner {
-  max-width: 860px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.budget-inner .label {
-  color: var(--sage);
-}
-
-.budget-title {
-  font-family: var(--font-fraunces), serif;
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 700;
-  line-height: 1.1;
-  color: var(--cream);
-  margin-bottom: 20px;
-}
-
-.budget-body {
-  font-size: 16px;
-  line-height: 1.75;
-  color: rgba(242, 232, 213, 0.58);
-}
-
-.budget-body strong {
-  color: rgba(242, 232, 213, 0.9);
-  font-weight: 500;
-}
-
-.distance-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.dist-card {
-  border-radius: 14px;
-  padding: 22px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.dist-card.near {
-  background-color: rgba(138, 175, 138, 0.12);
-}
-.dist-card.far {
-  background-color: rgba(212, 130, 26, 0.12);
-}
-
-.dist-card-title {
-  font-family: var(--font-fraunces), serif;
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-
-.dist-card.near .dist-card-title {
-  color: var(--sage);
-}
-.dist-card.far .dist-card-title {
-  color: var(--amber);
-}
-
-.dist-card p {
-  font-size: 14px;
-  line-height: 1.62;
-  color: rgba(242, 232, 213, 0.5);
-}
-
 /* ── OPT-OUT ── */
 .opt-section {
   background-color: var(--ink);
@@ -517,7 +439,6 @@ footer p {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 660px) {
-  .budget-inner,
   .opt-inner {
     grid-template-columns: 1fr;
     gap: 40px;
