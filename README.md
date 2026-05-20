@@ -23,3 +23,5 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+Visual regression tests: see [`e2e/README.md`](e2e/README.md).
