@@ -7,7 +7,7 @@ const sections: { id: string; selector: string; mask?: string }[] = [
   { id: '2-how', selector: '[data-section="how"]' },
   { id: '3-budget', selector: '[data-section="budget"]' },
   { id: '4-opt', selector: '[data-section="opt"]', mask: '.trip-date' },
-  { id: '5-reviews', selector: 'section.reviews-section' },
+  { id: '5-reviews', selector: '[data-section="reviews"]' },
 ]
 
 test.describe('landing page sections', () => {

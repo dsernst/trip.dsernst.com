@@ -152,15 +152,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="reviews-section">
-        <div className="reviews-inner">
-          <span className="label">After the trip</span>
-          <h2 className="reviews-title">
+      <section data-section="reviews" className="bg-cream px-6 py-[100px]">
+        <div className="mx-auto max-w-[860px]">
+          <span className="mb-3.5 block text-[11px]/[14px] font-medium tracking-[0.18em] text-amber uppercase">
+            After the trip
+          </span>
+          <h2 className="mb-10 font-serif text-[clamp(34px,5.5vw,54px)] leading-[1.1] font-bold text-ink">
             It gets better
             <br />
             as you go.
           </h2>
-          <div className="reviews-grid">
+          <div className="mb-6 grid grid-cols-2 gap-4 max-[660px]:grid-cols-1">
             <Review
               text="The old town was stunning and the food scene blew me away — I never would've chosen this myself."
               initial="A"
@@ -190,10 +192,11 @@ export default function Home() {
               color={avatar.blue}
             />
           </div>
-          <div className="reviews-callout">
-            <strong>Reviews feed the next pick.</strong> &ldquo;Jordan wants somewhere slower&rdquo;
-            and &ldquo;the food in Valletta was a hit&rdquo; become quiet inputs — so each trip is a
-            little better calibrated than the last.
+          <div className="rounded-r-[10px] border-l-[3px] border-amber bg-[rgba(212,130,26,0.08)] px-6 py-5 text-[15px] leading-[1.65] text-[rgba(28,26,20,0.65)]">
+            <strong className="font-medium text-ink">Reviews feed the next pick.</strong>{' '}
+            &ldquo;Jordan wants somewhere slower&rdquo; and &ldquo;the food in Valletta was a
+            hit&rdquo; become quiet inputs — so each trip is a little better calibrated than the
+            last.
           </div>
         </div>
       </section>
@@ -273,15 +276,18 @@ function Review({
   color: string
 }) {
   return (
-    <div className="review-card">
-      <p className="review-text">{text}</p>
-      <div className="review-meta">
-        <div className="avatar" style={{ backgroundColor: color }}>
+    <div className="relative overflow-hidden rounded-2xl border border-[rgba(28,26,20,0.07)] bg-white p-7 before:pointer-events-none before:absolute before:top-1 before:left-4 before:font-serif before:text-[80px] before:leading-none before:text-[rgba(212,130,26,0.12)] before:content-['\201C']">
+      <p className="mb-5 mt-[30px] text-[15px] leading-[1.67] text-[rgba(28,26,20,0.7)]">{text}</p>
+      <div className="flex items-center gap-2.5">
+        <div
+          className="grid h-[30px] w-[30px] shrink-0 place-items-center rounded-full text-xs font-bold text-ink"
+          style={{ backgroundColor: color }}
+        >
           {initial}
         </div>
         <div>
-          <div className="review-author">{author}</div>
-          <div className="review-trip">{trip}</div>
+          <div className="text-[13px] leading-[normal] font-medium text-ink">{author}</div>
+          <div className="text-[11px]/[14px] text-[rgba(28,26,20,0.35)]">{trip}</div>
         </div>
       </div>
     </div>
