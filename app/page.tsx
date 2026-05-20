@@ -11,6 +11,7 @@ export default function Home() {
   return (
     <>
       <section
+        data-section="hero"
         className="relative grid min-h-screen place-items-center overflow-hidden bg-forest px-6 pt-20 pb-[120px] before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_60%_50%_at_80%_20%,rgba(212,130,26,0.18)_0%,transparent_60%),radial-gradient(ellipse_50%_60%_at_10%_80%,rgba(184,92,56,0.15)_0%,transparent_60%)] before:content-[''] after:pointer-events-none after:absolute after:inset-0 after:bg-[length:28px_28px] after:bg-[radial-gradient(circle,rgba(242,232,213,0.1)_1px,transparent_1px)] after:content-['']"
       >
         <div className="relative z-10 mx-auto max-w-[820px] text-center">
