@@ -24,14 +24,4 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-### Visual regression
-
-Visual tests live entirely under `e2e/` (config, specs, baselines; ephemeral output under `e2e/cache/`). Tests run against a production build (`next build` + `next start`).
-
-```bash
-npm run playwright:install   # once per machine
-npm run test:visual          # compare to baselines (builds app on port 3456)
-npm run test:visual:update   # refresh baselines after intentional UI changes
-```
-
-Baselines: `e2e/snapshots/{platform}/{desktop|mobile}/` (e.g. `darwin/desktop/1-hero.png`), numbered in page order. Re-run `test:visual:update` on Linux before relying on CI there. Tests disable animations and mask the dynamic trip date in the opt-out section.
+Visual regression tests: see [`e2e/README.md`](e2e/README.md).
