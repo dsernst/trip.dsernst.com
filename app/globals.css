@@ -73,88 +73,6 @@ body {
   display: block;
 }
 
-/* ── OPT-OUT ── */
-.opt-section {
-  background-color: var(--ink);
-  padding: 100px 24px;
-}
-
-.opt-inner {
-  max-width: 860px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.opt-inner .label {
-  color: var(--sage);
-}
-
-.opt-title {
-  font-family: var(--font-fraunces), serif;
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 700;
-  line-height: 1.1;
-  color: var(--cream);
-  margin-bottom: 20px;
-}
-
-.opt-body {
-  font-size: 16px;
-  line-height: 1.75;
-  color: rgba(242, 232, 213, 0.55);
-}
-
-.opt-demo {
-  background-color: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 20px;
-  padding: 28px;
-}
-
-.trip-card {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 14px;
-}
-
-.trip-dest {
-  font-family: var(--font-fraunces), serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--cream);
-  margin-bottom: 2px;
-}
-
-.trip-date {
-  font-size: 12px;
-  color: rgba(242, 232, 213, 0.35);
-  margin-bottom: 18px;
-}
-
-.people-row {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.person {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 14px;
-  color: rgba(242, 232, 213, 0.75);
-}
-
-.person-name {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .avatar {
   width: 28px;
   height: 28px;
@@ -165,29 +83,6 @@ body {
   font-weight: 700;
   color: var(--ink);
   flex-shrink: 0;
-}
-
-.in-tag {
-  font-size: 11px;
-  padding: 3px 10px;
-  border-radius: 100px;
-  font-weight: 500;
-}
-
-.in-tag.in {
-  background-color: rgba(138, 175, 138, 0.2);
-  color: var(--sage);
-}
-.in-tag.out {
-  background-color: rgba(184, 92, 56, 0.2);
-  color: #d47a5a;
-}
-
-.opt-note {
-  font-size: 12px;
-  color: rgba(242, 232, 213, 0.25);
-  text-align: center;
-  margin-top: 4px;
 }
 
 /* ── REVIEWS ── */
@@ -439,10 +334,6 @@ footer p {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 660px) {
-  .opt-inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
   .reviews-grid {
     grid-template-columns: 1fr;
   }

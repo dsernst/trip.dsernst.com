@@ -114,32 +114,40 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="opt-section">
-        <div className="opt-inner">
+      <section data-section="opt" className="bg-ink px-6 py-[100px]">
+        <div className="mx-auto grid max-w-[860px] grid-cols-2 items-center gap-20 max-[660px]:grid-cols-1 max-[660px]:gap-10">
           <div>
-            <span className="label">Opting out</span>
-            <h2 className="opt-title">
+            <span className="mb-3.5 block text-[11px]/[14px] font-medium tracking-[0.18em] text-sage uppercase">
+              Opting out
+            </span>
+            <h2 className="mb-5 font-serif text-[clamp(28px,4vw,44px)] leading-[1.1] font-bold text-cream">
               Committed to the ritual.
               <br />
               Not every trip.
             </h2>
-            <p className="opt-body">
+            <p className="text-base leading-[1.75] text-[rgba(242,232,213,0.55)]">
               Anyone can sit out any round, for any reason, at any time. No guilt. The group keeps
               the ritual going — whoever shows up, shows up.
             </p>
           </div>
-          <div className="opt-demo">
-            <div className="trip-card">
-              <div className="trip-dest">New Orleans, LA</div>
-              <div className="trip-date">Next trip · September {new Date().getFullYear()}</div>
-              <div className="people-row">
+          <div className="rounded-[20px] border border-[rgba(255,255,255,0.09)] bg-[rgba(255,255,255,0.04)] p-7">
+            <div className="mb-3.5 rounded-xl bg-[rgba(255,255,255,0.05)] p-5">
+              <div className="mb-0.5 font-serif text-[22px] leading-[normal] font-bold text-cream">
+                New Orleans, LA
+              </div>
+              <div className="trip-date mb-[18px] text-xs text-[rgba(242,232,213,0.35)]">
+                Next trip · September {new Date().getFullYear()}
+              </div>
+              <div className="flex flex-col gap-2.5">
                 <Person initial="A" name="Alex" color={avatar.sage} status="in" />
                 <Person initial="J" name="Jordan" color={avatar.amber} status="in" />
                 <Person initial="M" name="Morgan" color={avatar.terra} status="in" />
                 <Person initial="S" name="Sam" color={avatar.blue} status="out" />
               </div>
             </div>
-            <p className="opt-note">No explanation needed.</p>
+            <p className="mt-1 text-center text-xs text-[rgba(242,232,213,0.25)]">
+              No explanation needed.
+            </p>
           </div>
         </div>
       </section>
@@ -228,14 +236,23 @@ function Person({
   status: 'in' | 'out'
 }) {
   return (
-    <div className="person">
-      <div className="person-name">
-        <div className="avatar" style={{ backgroundColor: color }}>
+    <div className="flex items-center justify-between text-sm text-[rgba(242,232,213,0.75)]">
+      <div className="flex items-center gap-2.5">
+        <div
+          className="grid h-7 w-7 shrink-0 place-items-center rounded-full text-[11px] font-bold text-ink"
+          style={{ backgroundColor: color }}
+        >
           {initial}
         </div>
         {name}
       </div>
-      <span className={`in-tag ${status === 'in' ? 'in' : 'out'}`}>
+      <span
+        className={
+          status === 'in'
+            ? 'rounded-full bg-[rgba(138,175,138,0.2)] px-2.5 py-[3px] text-[11px] font-medium text-sage'
+            : 'rounded-full bg-[rgba(184,92,56,0.2)] px-2.5 py-[3px] text-[11px] font-medium text-[#d47a5a]'
+        }
+      >
         {status === 'in' ? 'In' : 'Out this round'}
       </span>
     </div>
