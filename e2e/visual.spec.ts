@@ -1,22 +1,22 @@
 import { expect, test } from '@playwright/test'
 import { prepareVisualPage } from './visual-helpers'
 
-const sections: { name: string; selector: string; mask?: string }[] = [
-  { name: 'hero', selector: 'section.hero' },
-  { name: 'how', selector: 'section.how-section' },
-  { name: 'budget', selector: 'section.budget-section' },
-  { name: 'opt', selector: 'section.opt-section', mask: '.trip-date' },
-  { name: 'reviews', selector: 'section.reviews-section' },
-  { name: 'footer', selector: 'footer' },
+/** Page order — ids become snapshot filenames (e.g. `1-hero`). */
+const sections: { id: string; selector: string; mask?: string }[] = [
+  { id: '1-hero', selector: 'section.hero' },
+  { id: '2-how', selector: 'section.how-section' },
+  { id: '3-budget', selector: 'section.budget-section' },
+  { id: '4-opt', selector: 'section.opt-section', mask: '.trip-date' },
+  { id: '5-reviews', selector: 'section.reviews-section' },
 ]
 
 test.describe('landing page sections', () => {
-  for (const { name, selector, mask } of sections) {
-    test(name, async ({ page }) => {
+  for (const { id, selector, mask } of sections) {
+    test(id, async ({ page }) => {
       await prepareVisualPage(page)
       const section = page.locator(selector)
       await section.scrollIntoViewIfNeeded()
-      await expect(section).toHaveScreenshot(`${name}.png`, {
+      await expect(section).toHaveScreenshot(`${id}.png`, {
         mask: mask ? [page.locator(`${selector} ${mask}`)] : undefined,
       })
     })
@@ -24,14 +24,14 @@ test.describe('landing page sections', () => {
 })
 
 test.describe('beta signup', () => {
-  test('phone step', async ({ page }) => {
+  test('6-beta-phone', async ({ page }) => {
     await prepareVisualPage(page)
     const section = page.locator('section.beta-section')
     await section.scrollIntoViewIfNeeded()
-    await expect(section).toHaveScreenshot('beta-phone.png')
+    await expect(section).toHaveScreenshot('6-beta-phone.png')
   })
 
-  test('name step', async ({ page }) => {
+  test('7-beta-name', async ({ page }) => {
     await prepareVisualPage(page)
     const tel = page.locator('#beta-tel')
     await tel.click()
@@ -39,6 +39,13 @@ test.describe('beta signup', () => {
     await expect(page.locator('#beta-name')).toBeVisible()
     const section = page.locator('section.beta-section')
     await section.scrollIntoViewIfNeeded()
-    await expect(section).toHaveScreenshot('beta-name.png')
+    await expect(section).toHaveScreenshot('7-beta-name.png')
   })
+})
+
+test('8-footer', async ({ page }) => {
+  await prepareVisualPage(page)
+  const section = page.locator('footer')
+  await section.scrollIntoViewIfNeeded()
+  await expect(section).toHaveScreenshot('8-footer.png')
 })

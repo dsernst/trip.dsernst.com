@@ -32,6 +32,8 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
   },
+  snapshotDir: 'e2e/visual.spec.ts-snapshots',
+  snapshotPathTemplate: '{snapshotDir}/{platform}/{projectName}/{arg}{ext}',
   expect: {
     toHaveScreenshot: {
       maxDiffPixelRatio: 0.002,
