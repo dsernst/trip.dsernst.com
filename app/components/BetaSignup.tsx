@@ -54,7 +54,7 @@ export function BetaSignup() {
         <span className={labelClass}>The beta</span>
         {step === 'phone' ? (
           <>
-            <h2 className={titleClass}>Join the beta.</h2>
+            <h2 className={titleClass}>Request an invite.</h2>
             <p className={leadClass}>We&apos;ll text you when it&apos;s ready.</p>
             <form
               className={formClass}
@@ -133,7 +133,7 @@ export function BetaSignup() {
                 required
               />
               <button type="submit" className={buttonClass} disabled={pending || !name.trim()}>
-                {pending ? 'Saving…' : 'Join the beta'}
+                {pending ? 'Saving…' : 'Request an invite'}
               </button>
               {error && <p className="m-0 text-sm text-[#e8a090]">{error}</p>}
               <button
